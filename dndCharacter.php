@@ -26,7 +26,7 @@
           return rand(1,6);
           
         }
-
+        // I figured this could be private because I don't need it outside of the Character class
         private $_dndClasses;
         
 
@@ -54,6 +54,7 @@
       
      }
 
+     // is there a better way to do this? I feel like I'm repeating myself >_<
      $char = new Character();
      $charName = $char->get_name();
      $charClass = $char->get_charClass();
@@ -63,6 +64,9 @@
      
      echo "<h2>Hey there, <span>".$charName."</span>!</h2>";
      echo "<h2>You rolled the <span>".$charClass."</span> class.</h2>";
+
+     // I used a switch statement b/c I have a small amount of images
+     // obviously I'll have to refactor if the image folder gets too much bigger
      switch ($charClass) {
        case "Dark Elf":
         echo '<img src="'.$classImages[0].'" alt="your DnD class" />';
