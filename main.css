@@ -1,0 +1,36 @@
+@font-face {
+  font-family: amaticScript;
+  src: url('./fonts/AmaticSC-Regular.ttf');
+}
+
+h1,
+h2 {
+  font-family: amaticScript;
+}
+
+html {
+  background-color: #b2dbbf;
+  text-align: center;
+}
+
+img {
+  height: 15rem;
+  width: 15rem;
+}
+
+input {
+  padding: 0.5rem;
+  border: 3px solid #247ba0;
+  background-color: #70c1b3;
+}
+
+span {
+  font-size: 2rem;
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: #70c1b3;
+  border: 3px solid #247ba0;
+}
