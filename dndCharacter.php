@@ -15,18 +15,14 @@
         public static $hitPoints = 10;
         public $images;
   
-        private static function getDiceRoll() {
-          // TODO: figure out how to use a parameter so I can pass n number of dice rolls
-          // $arr = array();
-         
-          //   for ($i = 0; i <= $n; $i++) {
-          //     array_push($arr, rand(1,6));
-          //   }
-          //   return array_sum($arr);
-          return rand(1,6);
-          
+        private static function getDiceRoll($n) {
+          $arr = array();
+          for ($i = 0; $i < $n; $i++) {
+            $arr[] = rand(1,6);
+          }
+          return array_sum($arr);
         }
-        // I figured this could be private because I don't need it outside of the Character class
+    
         private $_dndClasses;
         
 
@@ -47,14 +43,14 @@
         }
 
         function get_constitution() {
-          $this->constitution = floor((($this->getDiceRoll() + $this->getDiceRoll() + $this->getDiceRoll() + $this->getDiceRoll()) - 10) / 2);
+          $this->constitution = floor(($this->getDiceRoll(4) - 10) / 2);
           return $this->constitution;
         }
 
       
      }
 
-     // is there a better way to do this? I feel like I'm repeating myself >_<
+     
      $char = new Character();
      $charName = $char->get_name();
      $charClass = $char->get_charClass();
@@ -65,8 +61,7 @@
      echo "<h2>Hey there, <span>".$charName."</span>!</h2>";
      echo "<h2>You rolled the <span>".$charClass."</span> class.</h2>";
 
-     // I used a switch statement b/c I have a small amount of images
-     // obviously I'll have to refactor if the image folder gets too much bigger
+     // switch statement is OK for small amount of use cases
      switch ($charClass) {
        case "Dark Elf":
         echo '<img src="'.$classImages[0].'" alt="your DnD class" />';
